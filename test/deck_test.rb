@@ -40,5 +40,33 @@ describe Deck do
       expect(list).must_equal [{value: 6, suit: :hearts}, {value: 6, suit: :spades}, {value: 6, suit: :clubs}, {value: 6, suit: :diamonds}]
     end
     
+    it "Doesn't have nonexistant suits" do
+      new_deck = Deck.new()
+      all_cards_in_deck = new_deck.card_list
+      
+      list = []
+      all_cards_in_deck.each do |card|
+        if card.value == 4 && card.suit == :clovers
+          list << {value: card.value, suit: card.suit}
+        end
+      end
+      
+      expect(list).must_equal []
+    end
+    
+    it "Doesn't have nonexistant values" do
+      new_deck = Deck.new()
+      all_cards_in_deck = new_deck.card_list
+      
+      list = []
+      all_cards_in_deck.each do |card|
+        if card.value == 14 && card.suit == :hearts
+          list << {value: card.value, suit: card.suit}
+        end
+      end
+      
+      expect(list).must_equal []
+    end
+    
   end
 end
