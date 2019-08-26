@@ -78,4 +78,14 @@ describe Deck do
     
   end
   
+  describe "The shuffle method" do
+    
+    it "returns a new order of cards" do
+      deck_one = Deck.new()
+      new_card_list = deck_one.shuffle()
+      expect(deck_one.card_list.eql?(new_card_list)).must_equal false
+    end
+    
+  end
+  
 end
