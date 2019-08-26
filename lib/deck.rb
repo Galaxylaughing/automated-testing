@@ -22,7 +22,7 @@ class Deck
   end
   
   def draw
-    # returns a card
+    return @card_list.sample
   end
   
   def shuffle
