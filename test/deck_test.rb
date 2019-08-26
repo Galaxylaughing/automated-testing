@@ -76,6 +76,13 @@ describe Deck do
       expect(drawn_item).must_be_instance_of Card
     end
     
+    it "removes a card from the deck" do
+      deck_one = Deck.new()
+      deck_two = Deck.new()
+      deck_two.draw()
+      expect(deck_one.card_list.length).wont_equal deck_two.card_list.length
+    end
+    
   end
   
   describe "The shuffle method" do
