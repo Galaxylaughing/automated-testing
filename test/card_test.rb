@@ -60,12 +60,18 @@ describe Card do
       # ensure that `.value works as expected`
       two_diamonds = Card.new(2, :diamonds)
       expect(two_diamonds.value).must_equal 2
+      
+      two_hearts = Card.new("2", :hearts)
+      expect(two_diamonds.value).must_equal 2
     end
     
     it "Can retrieve the value of the card using a `.suit`." do
       # ensure that `.suit works as expected returning the symbol of the suit`
       two_diamonds = Card.new(2, :diamonds)
       expect(two_diamonds.suit).must_equal :diamonds
+      
+      two_clubs = Card.new(2, "clubs")
+      expect(two_clubs.suit).must_equal :clubs
     end
   end
   
