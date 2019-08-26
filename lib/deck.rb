@@ -29,4 +29,8 @@ class Deck
     return card_list.shuffle()
   end
   
+  def count
+    return card_list.length
+  end
+  
 end
