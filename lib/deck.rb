@@ -5,7 +5,7 @@ require_relative 'card'
 
 class Deck
   
-  attr_reader :card_list
+  attr_accessor :card_list
   
   def initialize
     @card_list = []
@@ -26,6 +26,7 @@ class Deck
   end
   
   def shuffle
-    # shuffles the deck
+    return card_list.shuffle()
   end
+  
 end
