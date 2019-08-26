@@ -7,7 +7,6 @@ describe Deck do
   #   2.  Edge cases
   
   describe "You can create a Deck instance" do
-    
     it "Can be created" do
       new_deck = Deck.new()
       expect(new_deck).must_be_instance_of Deck    
@@ -67,6 +66,16 @@ describe Deck do
       
       expect(list).must_equal []
     end
+  end
+  
+  describe "The draw method" do
+    
+    it "gives back a card" do
+      new_deck = Deck.new()
+      drawn_item = new_deck.draw()
+      expect(drawn_item).must_be_instance_of Card
+    end
     
   end
+  
 end
