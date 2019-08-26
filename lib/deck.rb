@@ -5,7 +5,7 @@ require_relative 'card'
 
 class Deck
   
-  attr_accessor :card_list
+  attr_reader :card_list
   
   def initialize
     @card_list = []
