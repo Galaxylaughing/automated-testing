@@ -76,6 +76,25 @@ describe Deck do
       expect(drawn_item).must_be_instance_of Card
     end
     
+    it "gives back card 52" do
+      new_deck = Deck.new()
+      
+      card_fifty_two = new_deck.card_list.last
+      drawn_item = new_deck.draw()
+      expect(card_fifty_two).must_equal drawn_item
+    end
+    
+    it "gives back card 1" do
+      new_deck = Deck.new()
+      
+      card_one = new_deck.card_list.first
+      51.times do
+        new_deck.draw()
+      end
+      drawn_item = new_deck.draw()
+      expect(card_one).must_equal drawn_item
+    end
+    
     it "removes a card from the deck" do
       deck_one = Deck.new()
       deck_two = Deck.new()
