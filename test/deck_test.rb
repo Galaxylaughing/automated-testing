@@ -82,8 +82,17 @@ describe Deck do
     
     it "returns a new order of cards" do
       deck_one = Deck.new()
-      new_card_list = deck_one.shuffle()
-      expect(deck_one.card_list.eql?(new_card_list)).must_equal false
+      deck_one_shuffled = deck_one.shuffle()
+      # expect(deck_one.card_list.eql?(new_card_list)).must_equal false
+      expect(deck_one.card_list).wont_equal deck_one_shuffled
+    end
+    
+    it "returns all the same cards" do
+      deck_two = Deck.new()
+      deck_two_shuffled = deck_two.shuffle()
+      deck_two.card_list.each do |card|
+        expect(deck_two_shuffled).must_include card
+      end
     end
     
   end
