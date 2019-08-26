@@ -104,4 +104,18 @@ describe Deck do
     
   end
   
+  describe "The count method" do
+    
+    it "returns an integer" do
+      new_deck = Deck.new()
+      expect(new_deck.count).must_be_instance_of Integer
+    end
+    
+    it "returns the number of cards in the deck" do
+      new_deck = Deck.new()
+      expect(new_deck.count).must_equal new_deck.card_list.length
+    end
+    
+  end
+  
 end
