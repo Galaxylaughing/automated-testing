@@ -22,7 +22,7 @@ class Deck
   end
   
   def draw
-    return @card_list.sample
+    return card_list.delete_at(rand(0..52))
   end
   
   def shuffle
