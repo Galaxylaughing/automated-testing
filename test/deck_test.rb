@@ -68,6 +68,15 @@ describe Deck do
     end
   end
   
+  describe "the reader method" do
+    
+    it "returns an array" do
+      new_deck = Deck.new()
+      expect(new_deck.card_list).must_be_instance_of Array
+    end
+    
+  end
+  
   describe "The draw method" do
     
     it "gives back a card" do
@@ -109,7 +118,6 @@ describe Deck do
     it "returns a new order of cards" do
       deck_one = Deck.new()
       deck_one_shuffled = deck_one.shuffle()
-      # expect(deck_one.card_list.eql?(new_card_list)).must_equal false
       expect(deck_one.card_list).wont_equal deck_one_shuffled
     end
     
