@@ -64,7 +64,7 @@ describe Card do
       expect(two_diamonds.value).must_equal 2
       
       two_hearts = Card.new("2", :hearts)
-      expect(two_diamonds.value).must_equal 2
+      expect(two_hearts.value).must_equal 2
     end
     
     it "Can retrieve the value of the card using a `.suit`." do
