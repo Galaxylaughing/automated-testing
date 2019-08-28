@@ -111,6 +111,42 @@ describe Deck do
       expect(deck_one.card_list.length).wont_equal deck_two.card_list.length
     end
     
+    it "removes one card from the deck when called once" do
+      new_deck = Deck.new()
+      new_deck.draw()
+      expect(new_deck.card_list.length).must_equal 51
+    end
+    
+    it "removes two cards from the deck when called twice" do
+      new_deck = Deck.new()
+      new_deck.draw()
+      new_deck.draw()
+      expect(new_deck.card_list.length).must_equal 50
+    end
+    
+    it "removes all cards when called 52 times" do
+      new_deck = Deck.new()
+      
+      52.times do
+        new_deck.draw()
+      end
+      
+      expect(new_deck.card_list.length).must_equal 0
+    end
+    
+    # what should the program do if there are no more cards in the deck to draw?
+    it "raises an error when drawing from an empty deck" do
+      new_deck = Deck.new()
+      
+      52.times do
+        new_deck.draw()
+      end
+      
+      expect {
+        new_deck.draw()
+      }.must_raise ArgumentError
+    end
+    
   end
   
   describe "The shuffle method" do
@@ -127,6 +163,34 @@ describe Deck do
       deck_two.card_list.each do |card|
         expect(deck_two_shuffled).must_include card
       end
+    end
+    
+    # ensure shuffle returns same amount of cards in the deck before shuffling.
+    it "returns 52 cards for a full deck" do
+      new_deck = Deck.new()
+      new_deck.shuffle()
+      expect(new_deck.card_list.length).must_equal 52
+    end
+    
+    it "returns 50 cards for a deck with two cards drawn" do
+      new_deck = Deck.new()
+      new_deck.draw()
+      new_deck.draw()
+      new_deck.shuffle()
+      expect(new_deck.card_list.length).must_equal 50
+    end
+    
+    # what should shuffle do when we try to shuffle a deck with no cards? 
+    it "raises an error when we try to shuffle a deck with no cards" do
+      new_deck = Deck.new()
+      
+      52.times do
+        new_deck.draw()
+      end
+      
+      expect {
+        new_deck.shuffle()
+      }.must_raise ArgumentError
     end
     
   end

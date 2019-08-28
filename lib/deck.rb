@@ -22,10 +22,16 @@ class Deck
   end
   
   def draw
+    if card_list.length <= 0
+      raise ArgumentError.new("Cannot draw from empty deck")
+    end
     return card_list.pop()
   end
   
   def shuffle
+    if card_list.length <= 0
+      raise ArgumentError.new("Cannot shuffle an empty deck")
+    end
     return card_list.shuffle()
   end
   
