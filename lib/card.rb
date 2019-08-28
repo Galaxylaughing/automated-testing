@@ -15,7 +15,7 @@ class Card
     @suit = suit.to_sym
   end
   
-  def faces_to_s
+  def faces_to_names
     case value
     when 1
       value_name = "Ace"
@@ -33,7 +33,7 @@ class Card
     if (2..10).include?(value)
       value_name = value
     else
-      value_name = self.faces_to_s
+      value_name = self.faces_to_names
     end
     to_s_message = "#{value_name} of #{suit.to_s}"
     return to_s_message
